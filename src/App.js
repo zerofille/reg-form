@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import LoginForm from "./Components/login-form";
-import SigInForm from "./Components/sign-up-from";
+import LoginForm from "./Components/Login-form";
+import SigInForm from "./Components/SignIn-form/index.";
 function App() {
   return (
     <BrowserRouter>
