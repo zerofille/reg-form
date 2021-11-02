@@ -3,11 +3,12 @@ import styles from "./style.module.scss";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import{LOGIN_SCHEME} from '../../Utils/Validation-schemas'
 const initialValues={
-  login:'',
-  password:''
+  login:"",
+  password:"",
+  isRemembered:false
 }
-}
-function LoginForm() {
+
+function LoginForm(props) {
   const submitForm = (values, formikBag) => formikBag.resetForm();
   return (
     <section className={styles.wholeSection}>
@@ -18,7 +19,7 @@ function LoginForm() {
         <button className={styles.signUpBtn}>Signup</button>
       </div>
 
-      <Formik onSubmit={submitForm} className={styles.formik} validationSchema={LOGIN_SCHEME}>
+      <Formik onSubmit={submitForm} className={styles.formik} validationSchema={LOGIN_SCHEME} initialValues={initialValues}>
         <Form className={styles.loginForm}>
           <h1 className={styles.formHeading}>LOGIN TO YOUR ACCOUNT</h1>
           <Field
@@ -27,7 +28,7 @@ function LoginForm() {
             type="text"
             placeholder="Email adress"
           ></Field>
-          <ErrorMessage name="text">
+          <ErrorMessage name="login">
             {(message) => <div className={styles.error}>{message}</div>}
           </ErrorMessage>
           <Field
@@ -38,14 +39,14 @@ function LoginForm() {
           ></Field>
           <div className={styles.afterFormWrapper}>
             <div className={styles.checkbox}>
-              <Field type="checkbox" />{" "}
-              <p className={styles.checkboxText}>Remember me</p>{" "}
+              <Field type="checkbox" name="isRemembered" />{" "}
+              <p className={styles.checkboxText} >Remember me</p>{" "}
             </div>
             <div>
               <a  className={styles.passwordLink} href="#">Forgot pasword</a>
             </div>
           </div>
-          <button className={styles.logBtn}>LOGIN</button>
+          <button className={styles.logBtn}  type="submit" >LOGIN</button>
         </Form>
       </Formik>
     </section>
