@@ -35,7 +35,7 @@
   margin: 10px;
   width: 100%;
   box-sizing: border-box;
-
+  outline: none;
   font-size: 16px;
   height: auto;
   padding: 21px 23px;
@@ -43,7 +43,9 @@
   border: 2px solid white;
   border-radius: 4px;
 }
-
+.invalidField {
+  background-color: rgb(255, 210, 210);
+}
 .checkbox {
   display: flex;
   flex-direction: row;
@@ -65,11 +67,10 @@
 .logBtn {
   background-color: #28d2d0;
 
-  
   border-radius: 4px;
 
   height: 64px;
-margin-left: 20px;
+  margin-left: 20px;
   border: 0;
   color: #fff;
   font-size: 16px;
