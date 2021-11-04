@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./style.module.scss";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import{LOGIN_SCHEME} from '../../Utils/Validation-schemas'
+import{LOGIN_SCHEME} from '../../Utils/Validation-schemas';
+import cx from "classnames";
 const initialValues={
   login:"",
   password:"",
@@ -10,6 +12,12 @@ const initialValues={
 
 function LoginForm(props) {
   const submitForm = (values, formikBag) => formikBag.resetForm();
+
+//   const validStyle = ()=>{
+// cx({
+//   [styles.field]:
+// })
+//   }
   return (
     <section className={styles.wholeSection}>
       <div className={styles.header}>
@@ -26,7 +34,7 @@ function LoginForm(props) {
             className={styles.field}
             name="login"
             type="text"
-            placeholder="Email adress"
+            placeholder="Your login"
           ></Field>
           <ErrorMessage name="login">
             {(message) => <div className={styles.error}>{message}</div>}
