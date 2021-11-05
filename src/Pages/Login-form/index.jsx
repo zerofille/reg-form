@@ -23,7 +23,9 @@ function LoginForm(props) {
         <a className={styles.logo} href="/">
           <img src="https://www.squadhelp.com/img/logo.png" />
         </a>
-        <button className={styles.signUpBtn}>Signup</button>
+        <a className={styles.signUpBtn} href="/signin">
+          Signup
+        </a>
       </div>
 
       <Formik
