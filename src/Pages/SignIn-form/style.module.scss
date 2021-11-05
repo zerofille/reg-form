@@ -67,5 +67,53 @@
   border:1px solid white
 }
 .confirmationText{
-  margin-top: -20px 0px 10px ;
+  margin: -35px 0px 10px 50px ;
+}
+.checkboxRadio{
+  margin:15px 20px;
+}
+.confirmationText2{
+  margin-left: 50px;
+  margin-top: -8px;
+}
+.checkboxDiv{
+  width: 580px;
+  margin: 0 auto;
+  margin-right: 97px;
+  margin-bottom: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: smaller;
+  
+}
+.allow{
+  width: 580px;
+  margin: 0 auto;
+  margin-right: 97px;
+  margin-left: 145px;
+  margin-bottom: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: smaller;
+
+
+}
+.allowText{
+  margin-top:-17px;
+  margin-left: 25px;
+  font-size:1rem ;
+}
+.createBtn{
+  background-color: #28d2d0;
+
+  border-radius: 4px;
+width: 580px;
+  height: 64px;
+  margin-left: 20px;
+  border: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  // margin-right: 60px;
+  margin-left: 115px;
 }

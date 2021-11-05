@@ -50,8 +50,11 @@ function SigInForm() {
                 <h1 className={styles.confirmationText}>Join As a Creative or Marketplace Seller</h1>
                 <p className={styles.confirmationText2}>I plan to submit name ideas, Logo designs or sell names in Domain Marketplace.</p>
               </div>
-              <p>Allow Squadhelp to send marketing/promotional offers from time to time</p>
-              <button>Create account</button>
+              <div className={styles.allow}>
+               <Field type='checkbox' className={styles.allowCheckbox}></Field> 
+              <p className={styles.allowText}>Allow Squadhelp to send marketing/promotional offers from time to time</p>
+              </div>
+              <button className={styles.createBtn}>Create account</button>
               <p>By clicking this button, you agree to our <a href="#">Terms of Service.</a></p>
             </Form>
           );
