@@ -39,11 +39,11 @@ function LoginForm(props) {
           console.log(formikProps);
           const stylesValid = cx(styles.field, {
             [styles.field]: !formikProps.errors.login,
-            [styles.invalidField]: formikProps.errors.login,
+            [styles.invalidField]: formikProps.errors.login && formikProps.touched.login,
           });
           const stylesValid2 = cx(styles.field, {
             [styles.field]: !formikProps.errors.password,
-            [styles.invalidField]: formikProps.errors.password,
+            [styles.invalidField]: formikProps.errors.password && formikProps.touched.password ,
           });
 
           return (
