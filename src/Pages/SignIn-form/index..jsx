@@ -25,20 +25,34 @@ function SigInForm() {
           return (
             <Form className={styles.loginForm}>
               <h1 className={styles.formHeading}>CREATE AN ACCOUNT</h1>
+              <h2 className={styles.formPhrase}>We always keep your name and email address private.</h2>
               <div className={styles.allFieldsWrap}>
                 <div className={styles.pairingFields}>
-                <Field  className={styles.regForm} name="login" placeholder="Your login"></Field>
-                <Field name="password" placeholder="Password"></Field>
+                <Field  className={styles.regForm} name="first_name" placeholder="First name"></Field>
+                <Field  className={styles.regForm} name="last_name" placeholder="Last name"></Field>
                 </div>
                 <div className={styles.pairingFields}>
-                <Field name="password" placeholder="Password"></Field>
-                <Field name="password" placeholder="Password"></Field>
+                <Field className={styles.regForm} name="display_name" placeholder="Display name"></Field>
+                <Field className={styles.regForm} name="email" placeholder="Email adress"></Field>
                 </div>
                 <div className={styles.pairingFields}>
-                <Field name="password" placeholder="Password"></Field>
-                <Field name="password" placeholder="Password"></Field>
+                <Field className={styles.regForm} name="password" placeholder="Password"></Field>
+                <Field className={styles.regForm} name="password" placeholder="Password confirmation"></Field>
                 </div>
               </div>
+              <div className={styles.checkboxDiv}>
+                <Field className={styles.checkboxRadio}  type='radio'></Field>
+                <h1 className={styles.confirmationText}>Join as a Buyer</h1>
+                <p className={styles.confirmationText2}>I am looking for a Name, Logo or Tagline for my business, brand or product.</p>
+              </div>
+              <div className={styles.checkboxDiv}>
+                <Field className={styles.checkboxRadio} type='radio'></Field>
+                <h1 className={styles.confirmationText}>Join As a Creative or Marketplace Seller</h1>
+                <p className={styles.confirmationText2}>I plan to submit name ideas, Logo designs or sell names in Domain Marketplace.</p>
+              </div>
+              <p>Allow Squadhelp to send marketing/promotional offers from time to time</p>
+              <button>Create account</button>
+              <p>By clicking this button, you agree to our <a href="#">Terms of Service.</a></p>
             </Form>
           );
         }}
