@@ -44,7 +44,23 @@
   border-radius: 4px;
 }
 .invalidField {
-  background-color: rgb(255, 210, 210);
+  border-color: rgb(218, 50, 50);
+}
+.error {
+  display: block;
+  font-size: 12px;
+  color: rgb(255, 254, 254);
+  background-color: #ac474c;
+
+  border-radius: 4px;
+
+  margin-left: 20px;
+  border: 0;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 20px;
+  text-align: center;
 }
 .checkbox {
   display: flex;

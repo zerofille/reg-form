@@ -7,20 +7,20 @@ const initialValues = {
   login: "",
   password: "",
   isRemembered: false,
+  isShownPassword: false,
 };
 
 function LoginForm(props) {
+  const [passwordState, setPasswordState] = useState(false);
   const submitForm = (values, formikBag) => formikBag.resetForm();
+  const changePasswordState = () => {
+    setPasswordState(!passwordState);
+  };
 
-  //   const validStyle = ()=>{
-  // cx({
-  //   [styles.field]:!
-  // })
-  //   }
   return (
     <section className={styles.wholeSection}>
       <div className={styles.header}>
-        <a className={styles.logo} href="#">
+        <a className={styles.logo} href="/">
           <img src="https://www.squadhelp.com/img/logo.png" />
         </a>
         <button className={styles.signUpBtn}>Signup</button>
@@ -35,12 +35,15 @@ function LoginForm(props) {
       >
         {(formikProps) => {
           console.log(formikProps);
-
           const stylesValid = cx(styles.field, {
             [styles.field]: !formikProps.errors.login,
-            [styles.invalidField]:
-              formikProps.errors.login && formikProps.touched,
+            [styles.invalidField]: formikProps.errors.login,
           });
+          const stylesValid2 = cx(styles.field, {
+            [styles.field]: !formikProps.errors.password,
+            [styles.invalidField]: formikProps.errors.password,
+          });
+
           return (
             <Form className={styles.loginForm}>
               <h1 className={styles.formHeading}>LOGIN TO YOUR ACCOUNT</h1>
@@ -50,20 +53,29 @@ function LoginForm(props) {
                 type="text"
                 placeholder="Your login"
               ></Field>
-              <ErrorMessage name="login">
-                {(message) => <div className={styles.error}>{message}</div>}
-              </ErrorMessage>
+
               <Field
-                className={styles.field}
+                className={stylesValid2}
                 name="password"
-                type="password"
+                type={passwordState ? "text" : "password"}
                 placeholder="Password"
               ></Field>
+
               <div className={styles.afterFormWrapper}>
+                <div className={styles.checkbox}>
+                  <Field
+                    type="checkbox"
+                    onChange={changePasswordState}
+                    checked={passwordState}
+                    name="isShownPassword"
+                  />{" "}
+                  <p className={styles.checkboxText}>Show password</p>{" "}
+                </div>
                 <div className={styles.checkbox}>
                   <Field type="checkbox" name="isRemembered" />{" "}
                   <p className={styles.checkboxText}>Remember me</p>{" "}
                 </div>
+
                 <div>
                   <a className={styles.passwordLink} href="#">
                     Forgot pasword
@@ -73,6 +85,13 @@ function LoginForm(props) {
               <button className={styles.logBtn} type="submit">
                 LOGIN
               </button>
+
+              <ErrorMessage name="login">
+                {(message) => <div className={styles.error}>{message}</div>}
+              </ErrorMessage>
+              <ErrorMessage name="password">
+                {(message) => <div className={styles.error}>{message}</div>}
+              </ErrorMessage>
             </Form>
           );
         }}
