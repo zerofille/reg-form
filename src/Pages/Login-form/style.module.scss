@@ -8,6 +8,7 @@
   flex-direction: column;
   margin: 0 auto;
   width: 600px;
+  align-items: center;
 }
 .logo {
   margin: 20px 150px;
@@ -55,10 +56,10 @@
   font-size: 12px;
   color: rgb(255, 254, 254);
   background-color: #ac474c;
-
+width: 560px;
   border-radius: 4px;
 
-  margin-left: 20px;
+
   border: 0;
   margin-top: 20px;
   font-size: 16px;
@@ -70,7 +71,7 @@
   display: flex;
   flex-direction: row;
   color: white;
-  margin-left: 12px;
+  margin-right: 80px;
 }
 .checkboxText {
   margin-top: 1px;
@@ -78,7 +79,7 @@
 .afterFormWrapper {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .passwordLink {
   text-decoration: none;
@@ -88,9 +89,9 @@
   background-color: #28d2d0;
 
   border-radius: 4px;
-
+  width: 600px;
   height: 64px;
-  margin-left: 20px;
+
   border: 0;
   color: #fff;
   font-size: 16px;
