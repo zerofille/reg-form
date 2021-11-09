@@ -1,9 +1,18 @@
 import styles from "./style.module.scss";
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { LOGIN_SCHEME } from "../../Utils/Validation-schemas";
+import { SIGN_IN_SCHEME } from "../../Utils/Validation-schemas";
 import cx from "classnames";
 
+const InitialValues = {
+  first_name:"",
+  last_name:"",
+  display_name:"",
+  email:"",
+  password:"",
+  isJoined:false,
+  isAllowed:false
+}
 
 function SigInForm() {
   return (
@@ -18,8 +27,9 @@ function SigInForm() {
       </div>
       <Formik
         className={styles.formik}
-        validationSchema={LOGIN_SCHEME}
+        validationSchema={SIGN_IN_SCHEME}
         validateOnChange={false}
+        initialValues={InitialValues}
       >
         {(formikProps) => {
           console.log(formikProps);
@@ -39,21 +49,21 @@ function SigInForm() {
                 </div>
                 <div className={styles.pairingFields}>
                 <Field className={styles.regForm} name="password" placeholder="Password"></Field>
-                <Field className={styles.regForm} name="password" placeholder="Password confirmation"></Field>
+                <Field className={styles.regForm} name="passwordConf" placeholder="Password confirmation"></Field>
                 </div>
               </div>
               <div className={styles.checkboxDiv}>
-                <Field className={styles.checkboxRadio}  type='radio' name={isJoined}></Field>
+                <Field className={styles.checkboxRadio}  type='radio' value="buyer" name="isJoined" required></Field>
                 <h1 className={styles.confirmationText}>Join as a Buyer</h1>
                 <p className={styles.confirmationText2}>I am looking for a Name, Logo or Tagline for my business, brand or product.</p>
               </div>
               <div className={styles.checkboxDiv}>
-                <Field className={styles.checkboxRadio} type='radio' name={isJoined}></Field>
+                <Field className={styles.checkboxRadio} type='radio' value="seller" name="isJoined" required></Field>
                 <h1 className={styles.confirmationText}>Join As a Creative or Marketplace Seller</h1>
                 <p className={styles.confirmationText2}>I plan to submit name ideas, Logo designs or sell names in Domain Marketplace.</p>
               </div>
               <div className={styles.allow}>
-               <Field type='checkbox' className={styles.allowCheckbox}></Field> 
+               <Field type='checkbox' className={styles.allowCheckbox} name="isAllowed" required></Field> 
               <p className={styles.allowText}>Allow Squadhelp to send marketing/promotional offers from time to time</p>
               </div>
               <button className={styles.createBtn}>Create account</button>
