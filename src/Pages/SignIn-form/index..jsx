@@ -2,6 +2,7 @@ import styles from "./style.module.scss";
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { SIGN_IN_SCHEME } from "../../Utils/Validation-schemas";
+import ErrorMes from "../../Components/ErrorMessage";
 import cx from "classnames";
 
 const InitialValues = {
@@ -34,20 +35,9 @@ function SigInForm() {
           validationSchema={SIGN_IN_SCHEME}
           validateOnChange={false}
           initialValues={InitialValues}
+          onSubmit={submitForm}
         >
           {(formikProps) => {
-            console.log(formikProps);
-            // const stylesErrorsFirst = cx({
-            //   [styles.firstErrorsHidden]: !formikProps.errors.first_name,
-            //   [styles.firstError]:
-            //     formikProps.errors.first_name && formikProps.touched.login,
-            // });
-            // const stylesErrorsSec = cx({
-            //   [styles.firstErrorsHidden]: !formikProps.errors.last_name,
-            //   [styles.firstError]:
-            //     formikProps.errors.last_name && formikProps.touched.login,
-            // });
-
             return (
               <Form className={styles.loginForm}>
                 <h1 className={styles.formHeading}>CREATE AN ACCOUNT</h1>
@@ -68,17 +58,9 @@ function SigInForm() {
                     ></Field>
                   </div>
 
-                  <ErrorMessage name="first_name">
-                    {(message) => (
-                      <div className={styles.errorMes}>{message}</div>
-                    )}
-                  </ErrorMessage>
+                  <ErrorMes name="first_name" />
 
-                  <ErrorMessage name="last_name">
-                    {(message) => (
-                      <div className={styles.errorMes}>{message}</div>
-                    )}
-                  </ErrorMessage>
+                  <ErrorMes name="last_name" />
 
                   <div className={styles.pairingFields}>
                     <Field
@@ -92,17 +74,9 @@ function SigInForm() {
                       placeholder="Email adress"
                     ></Field>
                   </div>
-                  <ErrorMessage name="display_name">
-                    {(message) => (
-                      <div className={styles.errorMes}>{message}</div>
-                    )}
-                  </ErrorMessage>
+                  <ErrorMes name="display_name" />
 
-                  <ErrorMessage name="email">
-                    {(message) => (
-                      <div className={styles.errorMes}>{message}</div>
-                    )}
-                  </ErrorMessage>
+                  <ErrorMes name="email" />
                   <div className={styles.pairingFields}>
                     <Field
                       className={styles.regForm}
@@ -117,17 +91,9 @@ function SigInForm() {
                       type="password"
                     ></Field>
                   </div>
-                  <ErrorMessage name="password">
-                    {(message) => (
-                      <div className={styles.errorMes}>{message}</div>
-                    )}
-                  </ErrorMessage>
+                  <ErrorMes name="password" />
 
-                  <ErrorMessage name="passwordConf">
-                    {(message) => (
-                      <div className={styles.errorMes}>{message}</div>
-                    )}
-                  </ErrorMessage>
+                  <ErrorMes name="passwordConf" />
                 </div>
 
                 <div className={styles.checkboxDiv}>
