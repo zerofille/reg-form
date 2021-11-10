@@ -10,11 +10,15 @@ const InitialValues = {
   display_name: "",
   email: "",
   password: "",
+  passwordConf: "",
   isJoined: false,
   isAllowed: false,
+  isShownPassword: false,
 };
 
 function SigInForm() {
+  const submitForm = (values, formikBag) => formikBag.resetForm();
+
   return (
     <section className={styles.wholeSection}>
       <div className={styles.header}>
@@ -104,11 +108,13 @@ function SigInForm() {
                       className={styles.regForm}
                       name="password"
                       placeholder="Password"
+                      type="password"
                     ></Field>
                     <Field
                       className={styles.regForm}
                       name="passwordConf"
                       placeholder="Password confirmation"
+                      type="password"
                     ></Field>
                   </div>
                   <ErrorMessage name="password">
@@ -117,12 +123,13 @@ function SigInForm() {
                     )}
                   </ErrorMessage>
 
-                  <ErrorMessage name="email_name">
+                  <ErrorMessage name="passwordConf">
                     {(message) => (
                       <div className={styles.errorMes}>{message}</div>
                     )}
                   </ErrorMessage>
                 </div>
+
                 <div className={styles.checkboxDiv}>
                   <Field
                     className={styles.checkboxRadio}
@@ -166,7 +173,9 @@ function SigInForm() {
                   </p>
                 </div>
 
-                <button className={styles.createBtn}>Create account</button>
+                <button className={styles.createBtn} type="submit">
+                  Create account
+                </button>
 
                 <p className={styles.terms}>
                   By clicking this button, you agree to our{" "}
