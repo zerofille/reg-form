@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { SIGN_IN_SCHEME } from "../../Utils/Validation-schemas";
 import ErrorMes from "../../Components/ErrorMessage";
 import cx from "classnames";
+import PairOfFields from "../../Components/PairOfFields";
 
 const InitialValues = {
   first_name: "",
@@ -22,14 +23,6 @@ function SigInForm() {
 
   return (
     <section className={styles.wholeSection}>
-      <div className={styles.header}>
-        <a className={styles.logo} href="/">
-          <img src="https://www.squadhelp.com/img/logo.png" />
-        </a>
-        <a className={styles.logBtn} href="/login">
-          Login
-        </a>
-      </div>
       <div className={styles.formik}>
         <Formik
           validationSchema={SIGN_IN_SCHEME}
@@ -45,55 +38,27 @@ function SigInForm() {
                   We always keep your name and email address private.
                 </h2>
                 <div className={styles.allFieldsWrap}>
-                  <div className={styles.pairingFields}>
-                    <Field
-                      className={styles.regForm}
-                      name="first_name"
-                      placeholder="First name"
-                    ></Field>
-                    <Field
-                      className={styles.regForm}
-                      name="last_name"
-                      placeholder="Last name"
-                    ></Field>
-                  </div>
-
-                  <ErrorMes name="first_name" />
-
-                  <ErrorMes name="last_name" />
-
-                  <div className={styles.pairingFields}>
-                    <Field
-                      className={styles.regForm}
-                      name="display_name"
-                      placeholder="Display name"
-                    ></Field>
-                    <Field
-                      className={styles.regForm}
-                      name="email"
-                      placeholder="Email adress"
-                    ></Field>
-                  </div>
-                  <ErrorMes name="display_name" />
-
-                  <ErrorMes name="email" />
-                  <div className={styles.pairingFields}>
-                    <Field
-                      className={styles.regForm}
-                      name="password"
-                      placeholder="Password"
-                      type="password"
-                    ></Field>
-                    <Field
-                      className={styles.regForm}
-                      name="passwordConf"
-                      placeholder="Password confirmation"
-                      type="password"
-                    ></Field>
-                  </div>
-                  <ErrorMes name="password" />
-
-                  <ErrorMes name="passwordConf" />
+                  <PairOfFields
+                    firstName="first_name"
+                    firstPlHold="First name"
+                    secName="last_name"
+                    secPlHold="Last name"
+                  />
+                  <ErrorMes name="first_name" /> <ErrorMes name="last_name" />
+                  <PairOfFields
+                    firstName="display_name"
+                    firstPlHold="Display name"
+                    secName="email"
+                    secPlHold="Email"
+                  />
+                  <ErrorMes name="display_name" /> <ErrorMes name="email" />
+                  <PairOfFields
+                    firstName="password"
+                    firstPlHold="Password"
+                    secName="passwordConf"
+                    secPlHold="Password Confirmation"
+                  />
+                  <ErrorMes name="password" /> <ErrorMes name="passwordConf" />
                 </div>
 
                 <div className={styles.checkboxDiv}>

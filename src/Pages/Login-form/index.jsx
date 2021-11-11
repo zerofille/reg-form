@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { LOGIN_SCHEME } from "../../Utils/Validation-schemas";
 import cx from "classnames";
+import ErrorMes from "../../Components/ErrorMessage";
 const initialValues = {
   login: "",
   password: "",
@@ -19,15 +20,6 @@ function LoginForm(props) {
 
   return (
     <section className={styles.wholeSection}>
-      <div className={styles.header}>
-        <a className={styles.logo} href="/">
-          <img src="https://www.squadhelp.com/img/logo.png" />
-        </a>
-        <a className={styles.signUpBtn} href="/signin">
-          Signup
-        </a>
-      </div>
-
       <Formik
         onSubmit={submitForm}
         className={styles.formik}
@@ -36,14 +28,16 @@ function LoginForm(props) {
         validateOnChange={false}
       >
         {(formikProps) => {
-          console.log(formikProps);
+          
           const stylesValid = cx(styles.field, {
             [styles.field]: !formikProps.errors.login,
-            [styles.invalidField]: formikProps.errors.login && formikProps.touched.login,
+            [styles.invalidField]:
+              formikProps.errors.login && formikProps.touched.login,
           });
           const stylesValid2 = cx(styles.field, {
             [styles.field]: !formikProps.errors.password,
-            [styles.invalidField]: formikProps.errors.password && formikProps.touched.password ,
+            [styles.invalidField]:
+              formikProps.errors.password && formikProps.touched.password,
           });
 
           return (
@@ -88,12 +82,8 @@ function LoginForm(props) {
                 LOGIN
               </button>
 
-              <ErrorMessage name="login">
-                {(message) => <div className={styles.error}>{message}</div>}
-              </ErrorMessage>
-              <ErrorMessage name="password">
-                {(message) => <div className={styles.error}>{message}</div>}
-              </ErrorMessage>
+              <ErrorMes name="login" />
+              <ErrorMes name="password" />
             </Form>
           );
         }}
