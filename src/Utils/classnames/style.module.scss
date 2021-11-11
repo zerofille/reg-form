@@ -1,0 +1,16 @@
+.field {
+  color: #9ca8b7;
+  margin: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  font-size: 16px;
+  height: auto;
+  padding: 21px 23px;
+  display: inline-block;
+  border: 2px solid white;
+  border-radius: 4px;
+}
+.invalidField {
+  border-color: rgb(218, 50, 50);
+}

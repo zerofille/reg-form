@@ -4,6 +4,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { LOGIN_SCHEME } from "../../Utils/Validation-schemas";
 import cx from "classnames";
 import ErrorMes from "../../Components/ErrorMessage";
+import cxFunc from '../../Utils/classnames'
+
 const initialValues = {
   login: "",
   password: "",
@@ -27,31 +29,32 @@ function LoginForm(props) {
         initialValues={initialValues}
         validateOnChange={false}
       >
-        {(formikProps) => {
-          
-          const stylesValid = cx(styles.field, {
-            [styles.field]: !formikProps.errors.login,
-            [styles.invalidField]:
-              formikProps.errors.login && formikProps.touched.login,
-          });
-          const stylesValid2 = cx(styles.field, {
-            [styles.field]: !formikProps.errors.password,
-            [styles.invalidField]:
-              formikProps.errors.password && formikProps.touched.password,
-          });
+        {
+        (formikProps) => {
+          <cxFunc formikProps={formikProps}/>
+          // const stylesValid = cx(styles.field, {
+          //   [styles.field]: !formikProps.errors.login,
+          //   [styles.invalidField]:
+          //     formikProps.errors.login && formikProps.touched.login,
+          // });
+          // const stylesValid2 = cx(styles.field, {
+          //   [styles.field]: !formikProps.errors.password,
+          //   [styles.invalidField]:
+          //     formikProps.errors.password && formikProps.touched.password,
+          // });
 
           return (
             <Form className={styles.loginForm}>
               <h1 className={styles.formHeading}>LOGIN TO YOUR ACCOUNT</h1>
               <Field
-                className={stylesValid}
+                className={cxFunc.stylesValid}
                 name="login"
                 type="text"
                 placeholder="Your login"
               ></Field>
 
               <Field
-                className={stylesValid2}
+                className={cxFunc.stylesValid2}
                 name="password"
                 type={passwordState ? "text" : "password"}
                 placeholder="Password"
